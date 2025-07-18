@@ -229,6 +229,3 @@ Want to improve this tool? Feel free to open issues or submit PRs!
 
 MIT License
 
-
-
-Let me know if you'd like me to generate a `README.md` file from this directly, or help with the repo setup.
