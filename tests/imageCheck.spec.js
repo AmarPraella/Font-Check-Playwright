@@ -3,7 +3,7 @@
 import { test, expect } from '@playwright/test';
 
 // Define the URL to check here
-const TARGET_URL = 'https://feit.com/'; 
+const TARGET_URL = 'https://xeroshoes.com/pages/canvas-shoes'; 
 
 test('Should not have any broken images', async ({ page, request }) => {
   // 1. Array to store all images that fail to load
@@ -26,10 +26,10 @@ test('Should not have any broken images', async ({ page, request }) => {
   });
 
   // 3. Navigate to the target page
-  await page.goto(TARGET_URL, { waitUntil: 'domcontentloaded' });
+  await page.goto(TARGET_URL, { waitUntil: 'load' }); // FIX: Changed 'domcontentloaded' (or just use 'load')
 
   // 4. Wait for the network to be idle to ensure all image attempts have completed.
-  await page.waitForLoadState('networkidle');
+  await page.waitForSelector('main h1', { state: 'visible' }); 
 
   // 5. Final check: Assert that the list of broken images is empty
   if (brokenImages.length > 0) {
